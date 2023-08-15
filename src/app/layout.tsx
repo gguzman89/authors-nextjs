@@ -1,6 +1,8 @@
-import './globals.css'
+import { ThemeConfig } from '@/config/theme.config'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Home from './page'
+import React from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +18,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <React.StrictMode>
+        <ThemeConfig>
+          <Home />
+        </ThemeConfig>
+      </React.StrictMode>
     </html>
   )
 }
