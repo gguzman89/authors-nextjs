@@ -1,3 +1,5 @@
+'use client';
+
 import React from "react";
 import {
   Box,
@@ -9,11 +11,14 @@ import {
   Typography,
   Stack,
 } from "@mui/material";
+import { useRouter } from "next/navigation";
 
 export const NavBar: React.FC<{}> = () => {
+  const navigate = useRouter()
+
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed">
+      <AppBar position="sticky">
         <Toolbar>
           <Container maxWidth="xl">
             <Grid
@@ -27,7 +32,7 @@ export const NavBar: React.FC<{}> = () => {
               </Grid>
               <Grid item>
                 <Stack direction="row" spacing={2}>
-                  <Button variant="contained">MyLibrary</Button>
+                  <Button variant="contained" onClick={()=> navigate.push('/')}>MyLibrary</Button>
                   <Button variant="outlined">Login</Button>
                 </Stack>
               </Grid>
