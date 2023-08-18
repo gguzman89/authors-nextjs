@@ -18,14 +18,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <React.StrictMode>
-        <ThemeConfig>
-          <body>
-            <NavBar />
-            {children}
-          </body>
-        </ThemeConfig>
-      </React.StrictMode>
+      <ThemeConfig>
+        <body>
+          <NavBar />
+          {children}
+        </body>
+      </ThemeConfig>
     </html>
   );
 }

@@ -33,7 +33,8 @@ const themeOptions: ThemeOptions = {
         style: {
           textTransform: "none",
           boxShadow: "none",
-          borderRadius: "8px",
+          // base 16 => 1em = 16px
+          borderRadius: "16px",
         },
       },
     },
