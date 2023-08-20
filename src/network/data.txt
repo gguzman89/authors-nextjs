@@ -1,0 +1,50 @@
+{
+    "key": "OL10472286A",
+    "type": "author",
+    "name": "James Rowling",
+    "top_work": "Chile Calendar 2022",
+    "work_count": 73,
+    "_version_": 1767951597899350000
+}
+
+"key": "OL23919A",
+"type": "author",
+"name": "J. K. Rowling",
+"alternate_names": [
+                "Joanne Rowling",
+                "Joanne K. Rowling",
+                "Jo Murray",
+                "Kennilworthy Whisp",
+                "JK Rowling",
+                "Robert Galbraith",
+                "Джоан Роулінг",
+                "Dzhoan Rouling",
+                "J.K. Rowling",
+                "ROWLING",
+                "روبرت غالبريث - Robert Galbraith",
+                "Rouling Dzh.K.",
+                "Newt Scamander",
+                "Newton Scamander",
+                "J. K Rowling (creator) Jack Thorne",
+                "J.k. Rowling",
+                "Rowling.J.K.",
+                "J K Rowling",
+                "J. K Rowling",
+                "J-K Rowling"
+            ],
+"birth_date": "31 July 1965",
+"top_work": "Harry Potter and the Philosopher's Stone",
+"work_count": 465,
+"top_subjects": [
+                "Children's fiction",
+                "Fantasy fiction",
+                "Wizards, fiction",
+                "Fiction",
+                "England, fiction",
+                "Potter, harry (fictitious character), fiction",
+                "Schools, fiction",
+                "Magic, fiction",
+                "Hogwarts school of witchcraft and wizardry (imaginary organization), fiction",
+                "New York Times bestseller"
+            ],
+"_version_": 1771416132964581400
