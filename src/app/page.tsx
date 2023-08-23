@@ -11,17 +11,17 @@ import {
   Grid,
   Pagination,
 } from "@mui/material";
-import { useParams, useRouter } from "next/navigation";
 import React from "react";
 import useSWR from "swr";
 
 export default function Home() {
+  // pagination component
   const [page, setPage] = React.useState(1);
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
   };
-  const search = "rowling";
 
+  const search = "rowling";
   const { data: authorResults, isLoading: authorLoading } = useSWR(
     ["getAuthorSearch", search],
     () => AuthorApi.getAuthorSearch(search)
@@ -51,6 +51,7 @@ export default function Home() {
                 top_work={author.top_work}
                 type={author.type}
                 image="https://covers.openlibrary.org/a/olid/OL229501A-M.jpg"
+                id={author.key}
               />
             </Grid>
           ))}

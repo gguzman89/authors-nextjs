@@ -7,13 +7,15 @@ import {
   Divider,
   Typography,
 } from "@mui/material";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 type CardProps = {
   name: string;
-  top_work?: string | 'Has not Top Work';
+  top_work?: string | "Has not Top Work";
   type: string;
   image?: string | null;
+  id: string | null;
 };
 
 export const CardComponent: React.FC<CardProps> = ({
@@ -21,7 +23,9 @@ export const CardComponent: React.FC<CardProps> = ({
   top_work,
   type,
   image,
+  id,
 }) => {
+  let navigate = useRouter();
   return (
     <Card>
       {image !== null && (
@@ -42,7 +46,11 @@ export const CardComponent: React.FC<CardProps> = ({
         <Typography sx={{ mt: 1.5 }}>Top Work: {top_work}</Typography>
       </CardContent>
       <CardActions>
-        <Button variant="contained" size="small">
+        <Button
+          variant="contained"
+          size="small"
+          onClick={() => navigate.push(`/${id}`)}
+        >
           Learn More
         </Button>
       </CardActions>

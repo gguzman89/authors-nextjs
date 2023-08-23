@@ -34,10 +34,14 @@ export default function Page() {
       <Container maxWidth="xl">
         <Grid container sx={{ mt: 2 }} columnSpacing={2}>
           <Grid item xs={6}>
-            <Typography sx={{mb: 1.5}} variant="h1">{author?.name}</Typography>
+            <Typography sx={{ mb: 1.5 }} variant="h1">
+              {author?.name}
+            </Typography>
             <Divider />
-            <Typography sx={{mt: 1.5}} variant="body1">{author?.bio.value}</Typography>
-            <Box sx={{mt:2}}>
+            <Typography sx={{ mt: 1.5 }} variant="body1">
+              {author?.bio?.value}
+            </Typography>
+            <Box sx={{ mt: 2 }}>
               <Chip
                 color="primary"
                 variant="outlined"
