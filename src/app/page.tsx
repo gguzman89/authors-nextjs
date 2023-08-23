@@ -3,21 +3,36 @@
 import { CardComponent } from "@/components/Card/cardComponent";
 import { HeaderComponent } from "@/components/Header/headerComponent";
 import * as AuthorApi from "@/network/library-api";
-import { Box, Button, CircularProgress, Container, Grid } from "@mui/material";
-import { useParams, useRouter } from "next/navigation";
+import {
+  Box,
+  Button,
+  CircularProgress,
+  Container,
+  Grid,
+  Pagination,
+} from "@mui/material";
 import React from "react";
 import useSWR from "swr";
 
 export default function Home() {
-  const search = "rowling";
+  // pagination component
+  const [page, setPage] = React.useState(1);
+  const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    setPage(value);
+  };
 
+  const search = "rowling";
   const { data: authorResults, isLoading: authorLoading } = useSWR(
     ["getAuthorSearch", search],
     () => AuthorApi.getAuthorSearch(search)
   );
-  
-  // location and position: center
-  if (authorLoading) return <Box sx={{ display: 'flex' }}> <CircularProgress /> </Box>
+
+  if (authorLoading)
+    return (
+      <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
+        <CircularProgress />
+      </Box>
+    );
 
   return (
     <Container sx={{ mt: 9 }} maxWidth="xl">
@@ -27,7 +42,7 @@ export default function Home() {
         element={<Button variant="contained">Press here...</Button>}
       />
       {authorResults?.docs.length !== 0 ? (
-        <Grid container spacing={2} direction='row' sx={{ my: 2 }}>
+        <Grid container spacing={2} direction="row" sx={{ my: 2 }}>
           {authorResults?.docs.map((author) => (
             <Grid item key={author.key} xs={3}>
               <CardComponent
@@ -35,15 +50,26 @@ export default function Home() {
                 name={author.name}
                 top_work={author.top_work}
                 type={author.type}
+                image="https://covers.openlibrary.org/a/olid/OL229501A-M.jpg"
+                id={author.key}
               />
             </Grid>
           ))}
         </Grid>
       ) : (
-        ""
+        "No data available"
       )}
-
-      {/* <CardComponent name="asqw" top_work="wdqwd" type="qwdqwd" /> */}
+      <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }}>
+        <Pagination
+          count={10}
+          page={page}
+          onChange={handleChange}
+          variant="outlined"
+          color="primary"
+          size="large"
+          sx={{ mb: 3 }}
+        />
+      </Box>
     </Container>
   );
 }
