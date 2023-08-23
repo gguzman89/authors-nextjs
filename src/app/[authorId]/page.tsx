@@ -15,7 +15,8 @@ import { useParams } from "next/navigation";
 
 export default function Page() {
   const params = useParams();
-  const authorId = params.authorId;
+
+  const authorId = params.authorId?.toString() || '';
 
   const { data: author, isLoading: authorLoading } = useSWR(
     ["getAuthorByKey", authorId],

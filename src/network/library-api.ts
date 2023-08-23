@@ -13,7 +13,7 @@ export async function getAuthorSearch(name: string) {
 	return response.data;
 }
 
-export async function getAuthorByKey(authorId: string | undefined) {
+export async function getAuthorByKey(authorId: string) {
 
   // https://openlibrary.org/authors/OL23919A.json
   const response = await instanceLibrary.get<Author>(`authors/${authorId}.json`);
