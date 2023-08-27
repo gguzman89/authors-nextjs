@@ -9,19 +9,14 @@ import {
   Chip,
   CircularProgress,
 } from "@mui/material";
-import useSWR from "swr";
-import * as AuthorApi from "@/network/library-api";
 import { useParams } from "next/navigation";
+import useAuthor from "@/hooks/useAuthor";
 
 export default function Page() {
   const params = useParams();
+  const authorId = params.authorId?.toString() || "";
 
-  const authorId = params.authorId?.toString() || '';
-
-  const { data: author, isLoading: authorLoading } = useSWR(
-    ["getAuthorByKey", authorId],
-    () => AuthorApi.getAuthorByKey(authorId)
-  );
+  const { author, authorLoading } = useAuthor(authorId);
 
   if (authorLoading)
     return (
@@ -29,6 +24,12 @@ export default function Page() {
         <CircularProgress />
       </Box>
     );
+
+  if (author === null) return (
+    <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
+      <Typography variant="h4">Author not found</Typography>
+    </Box>
+  )
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -52,7 +53,7 @@ export default function Page() {
           </Grid>
           <Grid item xs={6}>
             <img
-              src="https://covers.openlibrary.org/a/olid/OL229501A-M.jpg"
+              src={`https://covers.openlibrary.org/a/olid/${authorId}-M.jpg`}
               style={{ width: "100%", borderRadius: "8px" }}
               alt="author"
             />
