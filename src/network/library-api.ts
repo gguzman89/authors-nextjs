@@ -9,20 +9,19 @@ export enum typeOfResult {
 
 export const pageSize = 12;
 
-export async function getAuthorSearch(
-  name: string,
-  { page = 1 }: { page?: number }
-) {
+export async function getAuthorSearch(name: string, { page = 1 }: { page?: number }) {
   /* 
   limit: docs count per results
   offset: page number of results
   */
 
-  // const pageSize = 12;
   // {params: {
   //   limit,
   //   offset
   // }}
+
+  const delay = Math.random() * 1000;
+  await new Promise(r => setTimeout(r, delay));
 
   const response = await instanceLibrary.get<AuthorResults>(
     `search/authors.json?q=${name}&limit=${pageSize}&offset=${
