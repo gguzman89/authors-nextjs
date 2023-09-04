@@ -64,3 +64,16 @@ export interface RemoteIDS {
     librarything: string;
     amazon:       string;
 }
+
+// -------  Author Storage Type  -------
+export interface AuthorDB {
+    id:                        number;
+    name:                      string;
+    email:                     string;
+    github:                    string;
+    twitter:                   string;
+    location:                  string;
+    lastest_article_published: string;
+    created_at:                Date;
+    updated_at:                Date;
+}
